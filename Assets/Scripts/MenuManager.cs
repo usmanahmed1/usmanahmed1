@@ -77,10 +77,16 @@ public class MenuManager : MonoBehaviour
     public bool soundcheck;
 
     public GameObject LevelSelectionPanel;
+
+    public void Start()
+    {
+
+    }
+
     public void OnClickPlayButton()
     {
         levelSelectionPanel.SetActive(true);
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.PlayButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.PlayButtonClick);
         //MonetizationManager.instance.ShowInterstitialMediation();
 
     }
@@ -92,55 +98,55 @@ public class MenuManager : MonoBehaviour
 
     public void OnClickStoreButton()
     {
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
         IAPPanel.SetActive(true);
         OpenIAPPanel();
     }
 
     public void OnClickIAPCrossButton()
     {
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
         CloseIAPPanel();
     }
 
 
     public void OnClickExitYesButton()
     {
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
         Application.Quit();
     }
     public void OnClickExitNoButton()
     {
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
         quitPanel.SetActive(false);
     }
     public void OnClickInfoButton()
     {
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
         infoPanel.SetActive(true);
         OpenInfoPanel();
     }
     public void OnInfoCrossButtonClick()
     {
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
         CloseInfoPanel();
     }
 
     public void OnClickSettingsButton()
     {
         settingsPanel.SetActive(true);
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
     }
 
     public void OnClickShareButton()
     {
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
         
     }
 
     public void OnClickNameBar()
     {
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
         changeNamePanel.SetActive(true);
         if (string.IsNullOrEmpty(text.text))
         {
@@ -151,7 +157,7 @@ public class MenuManager : MonoBehaviour
     }
     public void OnClickNameOkayButton()
     {
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
         string plName = text.text;
         if (!string.IsNullOrEmpty(plName))
         {
@@ -169,7 +175,7 @@ public class MenuManager : MonoBehaviour
     }
     public void OnClickMoreGamesButton()
     {
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
 #if UNITY_ANDROID
         Application.OpenURL(MoreAppAndriod);
 #elif UNITY_IOS
@@ -178,7 +184,7 @@ public class MenuManager : MonoBehaviour
     }
     public void OnClickRateUsButton()
     {
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
 #if UNITY_ANDROID
         Application.OpenURL(RateUsAndriod);
 #elif UNITY_IOS
@@ -188,18 +194,18 @@ public class MenuManager : MonoBehaviour
 
     public void OnClickPrivacyPolicyButton()
     {
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
         Application.OpenURL(privacyPolicy);
     }
 
     public void OnClickLeaderBoardButton()
     {
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
         leaderboardPanel.SetActive(true);
     }
     public void OnClickLeaderBoardCrossButton()
     {
-        SoundManager.instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
+        SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.GenericButtonClick);
         leaderboardPanel.SetActive(false);
     }
 

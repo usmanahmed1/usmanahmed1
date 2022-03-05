@@ -20,7 +20,7 @@ public class DoorHandler : MonoBehaviour
     {
         if (openCompleted)
         {
-            SoundManager.instance.PlayEffect(AudioClipsSource.Instance.doorClip);
+            SoundManager.Instance.PlayEffect(AudioClipsSource.Instance.doorClip);
             opened = !opened;
             if (opened)
                 OpenDoor();

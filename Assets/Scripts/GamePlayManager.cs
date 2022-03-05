@@ -15,6 +15,11 @@ public class GamePlayManager : MonoBehaviour
             Instance = this;
         }
     }
+
+    public void ActivateCutScenes()
+    {
+
+    }
 }
 
 [Serializable]

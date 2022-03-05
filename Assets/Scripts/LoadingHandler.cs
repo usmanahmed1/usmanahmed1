@@ -26,7 +26,8 @@ public class LoadingHandler : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync("GamePlay");
         while (!operation.isDone)
         {
-            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            float progress = Mathf.Clamp01(operation.progress/0.009f);
+            print(progress);
             slider.fillAmount = progress;
             percentage.text = "% " + progress * 100;
             yield return null;

@@ -2,11 +2,11 @@
 /// SoundManager.cs 
 /// version 1.0
 /// Sound Manager to handle Background Music and effects.
-/// By Awais Mazhar
+/// By Usman Ahmed
 /// </summary>
 ///---------------
 /*
-	 Copyright (c) 2016 Awais Mazhar
+	 Copyright (c) 2016 Usman Ahmed
 
 Permission is hereby granted, free of charge, 
 to any person obtaining a copy of this software and associated documentation files (the "Software"), 
@@ -29,7 +29,9 @@ using System.Collections;
 
 
 
-public class SoundManager : SingletonSounds<SoundManager> {
+public class SoundManager : MonoBehaviour
+{
+	public static SoundManager Instance;
 
 	const string PlayerPrefs_KEY = "sounds_settings_key";
 	public AudioClip _defaultBGClip = null;
@@ -45,6 +47,12 @@ public class SoundManager : SingletonSounds<SoundManager> {
 
     void Awake()
     {
+		if (Instance == null)
+		{
+			Instance = this;
+			DontDestroyOnLoad(gameObject);
+		}
+		else Destroy(gameObject);
         //Debug.Log(" SoundManager booting up ");
         // add requred components
         _FGAudioSource = gameObject.AddComponent<AudioSource>();

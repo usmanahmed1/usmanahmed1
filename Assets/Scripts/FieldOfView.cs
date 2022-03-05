@@ -64,6 +64,10 @@ public class FieldOfView : MonoBehaviour
                 }
             }
         }
+        if(targetsInViewRadius.Length <= 0)
+        {
+            FollowWayPoints();
+        }
     }
 
     public void FollowWayPoints()

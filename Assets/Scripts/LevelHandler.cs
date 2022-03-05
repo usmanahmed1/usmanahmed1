@@ -1,18 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static LevelHandler Instance;
+
+    public void Awake()
     {
-        
+        if(Instance == null)
+        {
+            Instance = this;
+        }
     }
 
-    // Update is called once per frame
+    public List<GameObject> levelButtons;
+    public Button lvlNextBtn;
+
+    public void Start()
+    {
+        for (int i = 0; i < levelButtons.Count; i++)
+        {
+            levelButtons[i].GetComponent<Level>().SetProperties(i);
+        }
+    }
+
     void Update()
     {
-        
+        lvlNextBtn.interactable = GameManager.Instance.LevelSelected != -1;
+    }
+
+    public void OnClickLevelNextButton()
+    {
+        if (GameManager.Instance.LevelSelected != -1)
+        {
+            GameManager.Instance.ChangeScene("Loading");
+        }
+    }
+
+    public void OnClickBackButton()
+    {
+        gameObject.SetActive(false);
     }
 }

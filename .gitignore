@@ -8,8 +8,10 @@
 /UserSettings/
 /CF2-Data/
 /obj/
+/.vs/
 *.vsconfig
 *.csproj
 *.unityproj
 *.sln
 *.apk
+*.vs
