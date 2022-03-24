@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,10 +33,22 @@ public class UIManager : MonoBehaviour
     public GameObject unlockCodePanel;
     public GameObject objectivePanel;
 
+
+    [Header("Pause Panel Options")]
+    public GameObject pausePopUp;
+    public GameObject pauseTitle;
+    public GameObject pauseHomeBtn;
+    public GameObject pauseRestartBtn;
+    public GameObject pauseResumeBtn;
+
     public void OnClickPauseButton(bool active)
     {
-        Time.timeScale = active ? 1 : 0;
-        pausePanel.SetActive(active);
+        //pausePanel.SetActive(active);
+        if (active)
+            OpenPausePanel();
+        else ClosePausePanel();
+        Time.timeScale = !active ? 1 : 0;
+
     }
 
     public void OnClickRestartButton()
@@ -65,5 +76,50 @@ public class UIManager : MonoBehaviour
     {
         PlayerController.Instance.OpenDoor();
     }
+
+
+    #region Tweener
+    public void OpenPausePanel()
+    {
+        pausePanel.SetActive(true);
+        pausePopUp.transform.DOScale(1f, .5f).SetEase(Ease.OutQuad).SetUpdate(true).OnComplete(delegate
+        {
+            pauseTitle.transform.DOScale(1f, .5f).SetEase(Ease.OutQuad).SetUpdate(true).OnComplete(delegate
+            {
+                pauseHomeBtn.transform.DOScale(1f, .5f).SetEase(Ease.OutQuad).SetUpdate(true).OnComplete(delegate
+                {
+                    pauseRestartBtn.transform.DOScale(1f, .5f).SetEase(Ease.OutQuad).SetUpdate(true).OnComplete(delegate
+                    {
+                        pauseResumeBtn.transform.DOScale(1f, .5f).SetEase(Ease.OutQuad).SetUpdate(true).OnComplete(delegate
+                        {
+
+                        });
+                    });
+                });
+            });
+        });
+    }
+
+    public void ClosePausePanel()
+    {
+        pauseResumeBtn.transform.DOScale(0f, .5f).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(delegate
+        {
+            pauseRestartBtn.transform.DOScale(0f, .5f).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(delegate
+            {
+                pauseHomeBtn.transform.DOScale(0f, .5f).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(delegate
+                {
+                    pauseTitle.transform.DOScale(0f, .5f).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(delegate
+                    {
+                        pausePopUp.transform.DOScale(0f, .5f).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(delegate
+                        {
+                            pausePanel.SetActive(false);
+                        });
+                    });
+                });
+            });
+        });
+    }
+
+    #endregion
 
 }

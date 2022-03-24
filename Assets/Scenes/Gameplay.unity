@@ -7231,7 +7231,7 @@ RectTransform:
   m_GameObject: {fileID: 94901768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 941725436}
   m_RootOrder: 0
@@ -28125,7 +28125,7 @@ RectTransform:
   m_GameObject: {fileID: 467759766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 941725436}
   m_RootOrder: 3
@@ -50362,7 +50362,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -150, y: 150}
+  m_AnchoredPosition: {x: -200, y: 200}
   m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &829526389
@@ -53416,7 +53416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 250, y: 250}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &894017218
@@ -55453,7 +55453,7 @@ RectTransform:
   m_GameObject: {fileID: 941725435}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 94901769}
   - {fileID: 2069801315}
@@ -63075,7 +63075,7 @@ RectTransform:
   m_GameObject: {fileID: 1055253750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 941725436}
   m_RootOrder: 2
@@ -120710,6 +120710,11 @@ MonoBehaviour:
   rewardedVideoPanel: {fileID: 205094244}
   unlockCodePanel: {fileID: 1492906489}
   objectivePanel: {fileID: 361929377}
+  pausePopUp: {fileID: 1581535863}
+  pauseTitle: {fileID: 94901768}
+  pauseHomeBtn: {fileID: 2069801314}
+  pauseRestartBtn: {fileID: 1055253750}
+  pauseResumeBtn: {fileID: 467759766}
 --- !u!114 &1953727549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127309,7 +127314,7 @@ RectTransform:
   m_GameObject: {fileID: 2069801314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 941725436}
   m_RootOrder: 1

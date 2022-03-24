@@ -27,9 +27,9 @@ public class LoadingHandler : MonoBehaviour
         while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress/0.009f);
-            print(progress);
-            slider.fillAmount = progress;
-            percentage.text = "% " + progress * 100;
+            /*print(progress);
+            slider.fillAmount = 0f;
+            percentage.text = "% " + progress * 100;*/
             yield return null;
         }
     }

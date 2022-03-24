@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\GameData.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GamePlayManager.cs" />
+     <Compile Include="Assets\Scripts\Level.cs" />
      <Compile Include="Assets\Scripts\LevelCompleteHandler.cs" />
      <Compile Include="Assets\Scripts\LevelFailedHandler.cs" />
      <Compile Include="Assets\Scripts\LevelHandler.cs" />
