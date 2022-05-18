@@ -41,6 +41,9 @@ public class LevelHandler : MonoBehaviour
 
     public void OnClickBackButton()
     {
+        if (GameManager.Instance.LevelSelected != -1)
+            levelButtons[GameManager.Instance.LevelSelected].GetComponent<Level>().outline.enabled = false;
+        GameManager.Instance.LevelSelected = -1;
         gameObject.SetActive(false);
     }
 }

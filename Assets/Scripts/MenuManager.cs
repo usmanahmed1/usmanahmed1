@@ -80,7 +80,7 @@ public class MenuManager : MonoBehaviour
 
     public void Start()
     {
-
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void OnClickPlayButton()

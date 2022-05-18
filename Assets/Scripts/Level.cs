@@ -35,12 +35,10 @@ public class Level : MonoBehaviour
 
     public void OnClickLevelButton()
     {
-        GameManager.Instance.LevelSelected = index;
         var lvl = LevelHandler.Instance.levelButtons;
-        for (int i = 0; i < lvl.Count; i++)
-        {
-            lvl[i].GetComponent<Level>().outline.enabled = false;
-        }
+        if(GameManager.Instance.LevelSelected != -1)
+            lvl[GameManager.Instance.LevelSelected].GetComponent<Level>().outline.enabled = false;
+        GameManager.Instance.LevelSelected = index;
         outline.enabled = true;
     }
 

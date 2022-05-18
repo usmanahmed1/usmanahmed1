@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     public GameObject doorBtn;
 
     [Header("UI Panels")]
+    public GameObject cf2Panel;
     public GameObject pausePanel;
     public GameObject levelCompletePanel;
     public GameObject levelFailedPanel;
@@ -41,6 +42,13 @@ public class UIManager : MonoBehaviour
     public GameObject pauseRestartBtn;
     public GameObject pauseResumeBtn;
 
+    [Header("Objective Panel Options")]
+    public GameObject objectivePopUp;
+    public GameObject objText;
+
+    public GameObject fadeImage;
+    private int currentObj;
+
     public void OnClickPauseButton(bool active)
     {
         //pausePanel.SetActive(active);
@@ -53,6 +61,7 @@ public class UIManager : MonoBehaviour
 
     public void OnClickRestartButton()
     {
+        Time.timeScale = 1;
         GameManager.Instance.ChangeScene("Loading");
     }
 
@@ -77,6 +86,24 @@ public class UIManager : MonoBehaviour
         PlayerController.Instance.OpenDoor();
     }
 
+    public void SetMainObjective()
+    {
+        cf2Panel.SetActive(false);
+        objectivePanel.SetActive(true);
+        objectivePopUp.transform.DOScale(1f, .5f).SetEase(Ease.Linear).SetUpdate(true).OnComplete(delegate
+        {
+            objText.SetActive(true);
+            GamePlayManager.Instance.ActivateObjectives(objText.GetComponent<Text>());
+        });
+    }
+
+    public void SetObjective()
+    {
+        hudObjTxt.text = GamePlayManager.Instance.gameLevels[GameManager.Instance.LevelSelected].objectives[currentObj];
+        if (currentObj < GamePlayManager.Instance.gameLevels[GameManager.Instance.LevelSelected].objectives.Count - 1)
+            currentObj++;
+        else currentObj = 0;
+    }
 
     #region Tweener
     public void OpenPausePanel()
@@ -102,15 +129,15 @@ public class UIManager : MonoBehaviour
 
     public void ClosePausePanel()
     {
-        pauseResumeBtn.transform.DOScale(0f, .5f).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(delegate
+        pauseResumeBtn.transform.DOScale(0f, .25f).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(delegate
         {
-            pauseRestartBtn.transform.DOScale(0f, .5f).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(delegate
+            pauseRestartBtn.transform.DOScale(0f, .25f).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(delegate
             {
-                pauseHomeBtn.transform.DOScale(0f, .5f).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(delegate
+                pauseHomeBtn.transform.DOScale(0f, .25f).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(delegate
                 {
-                    pauseTitle.transform.DOScale(0f, .5f).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(delegate
+                    pauseTitle.transform.DOScale(0f, .25f).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(delegate
                     {
-                        pausePopUp.transform.DOScale(0f, .5f).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(delegate
+                        pausePopUp.transform.DOScale(0f, .25f).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(delegate
                         {
                             pausePanel.SetActive(false);
                         });
